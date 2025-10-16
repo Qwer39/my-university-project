@@ -282,7 +282,7 @@ main.content {
 }
 /* ===== АДАПТИВНОСТЬ ===== */
 /* Новое: Медиа-запросы для мобильных устройств */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
  .nav-list {
     flex-direction: column;
     gap: 10px;
