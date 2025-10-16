@@ -4,4 +4,4 @@
 Это репозиторий является каркасом для будущего веб-приложения.
 
 ## Ссылки
-- [Публичная страница на GitHub Pages](https://Qwer39.github.io/my-awesome-project1/)
+- [Публичная страница на GitHub Pages](https://qwer39.github.io/my-university-project/)
