@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дневник - Портфолио студента</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <div class="page-container">
+        <header class="header">
+            <div class="header-brand">
+                <div class="logo">🎓</div>
+                <h1 class="header-title">Иванов Иван</h1>
+            </div>
+            <button class="theme-toggle" aria-label="Переключить тему">🌙</button>
+        </header>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="projects.html">Проекты</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link--active" href="diary.html">Дневник</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contacts.html">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="main">
+            <h2 class="page-title">Мой учебный прогресс</h2>
+            
+            <div class="diary-layout">
+                <!-- Progress Entries -->
+                <section class="progress-entries">
+                    <h3 class="section-title">Последние достижения</h3>
+                    <div class="entries-list">
+                        <div class="entry-item entry-completed">
+                            <div class="entry-date">15 дек</div>
+                            <div class="entry-content">
+                                <h4 class="entry-title">Вёрстка макета сайта</h4>
+                                <span class="entry-status">✓ выполнено</span>
+                            </div>
+                        </div>
+                        <div class="entry-item entry-completed">
+                            <div class="entry-date">10 дек</div>
+                            <div class="entry-content">
+                                <h4 class="entry-title">JavaScript основы</h4>
+                                <span class="entry-status">✓ выполнено</span>
+                            </div>
+                        </div>
+                        <div class="entry-item entry-in-progress">
+                            <div class="entry-date">05 дек</div>
+                            <div class="entry-content">
+                                <h4 class="entry-title">Работа с формами</h4>
+                                <span class="entry-status">in progress</span>
+                            </div>
+                        </div>
+                        <div class="entry-item entry-in-progress">
+                            <div class="entry-date">01 дек</div>
+                            <div class="entry-content">
+                                <h4 class="entry-title">Адаптивный дизайн</h4>
+                                <span class="entry-status">in progress</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="button button--outline" onclick="openAddEntryModal()">
+                        ➕ Добавить запись
+                    </button>
+                </section>
+
+                <!-- Current Courses -->
+                <section class="current-courses">
+                    <h3 class="section-title">Текущие курсы</h3>
+                    <div class="courses-list">
+                        <div class="course-item">
+                            <div class="course-header">
+                                <span class="course-name">Веб-разработка</span>
+                                <span class="course-percent">90%</span>
+                            </div>
+                            <div class="course-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="course-item">
+                            <div class="course-header">
+                                <span class="course-name">JavaScript</span>
+                                <span class="course-percent">70%</span>
+                            </div>
+                            <div class="course-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="course-item">
+                            <div class="course-header">
+                                <span class="course-name">React</span>
+                                <span class="course-percent">50%</span>
+                            </div>
+                            <div class="course-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 50%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p class="footer-copyright">&copy; 2025</p>
+                <a href="contacts.html" class="footer-link">Контакты</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Add Entry Modal -->
+    <dialog id="addEntryModal" class="modal">
+        <div class="modal-content">
+            <h3 class="modal-title">Добавить запись</h3>
+            <form class="entry-form" onsubmit="addNewEntry(event)">
+                <div class="form-group">
+                    <label for="entryDate" class="form-label">Дата</label>
+                    <input type="date" id="entryDate" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="entryTitle" class="form-label">Название</label>
+                    <input type="text" id="entryTitle" class="form-input" required 
+                           placeholder="Что вы изучили?">
+                </div>
+                <div class="form-group">
+                    <label for="entryStatus" class="form-label">Статус</label>
+                    <select id="entryStatus" class="form-select" required>
+                        <option value="completed">✓ выполнено</option>
+                        <option value="in-progress">in progress</option>
+                        <option value="planned">запланировано</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="button button--secondary" 
+                            onclick="closeAddEntryModal()">Отмена</button>
+                    <button type="submit" class="button button--primary">Добавить</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+    <script src="../scripts/theme.js"></script>
+    <script src="../scripts/diary.js"></script>
+</body>
+</html>

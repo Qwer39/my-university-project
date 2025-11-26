@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проекты - Портфолио студента</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <div class="page-container">
+        <header class="header">
+            <div class="header-brand">
+                <div class="logo">🎓</div>
+                <h1 class="header-title">Иванов Иван</h1>
+            </div>
+            <button class="theme-toggle" aria-label="Переключить тему">🌙</button>
+        </header>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link--active" href="projects.html">Проекты</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="diary.html">Дневник</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contacts.html">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="main">
+            <div class="page-header">
+                <h2 class="page-title">Мои проекты</h2>
+                <div class="filter-tabs">
+                    <button class="filter-tab filter-tab--active">Все</button>
+                    <button class="filter-tab">HTML</button>
+                    <button class="filter-tab">JS</button>
+                    <button class="filter-tab">React</button>
+                </div>
+            </div>
+
+            <div class="projects-grid-full">
+                <article class="project-card-large" onclick="openProjectModal(1)">
+                    <div class="project-image-large">
+                        <img src="../images/project1.jpg" alt="Личный сайт" 
+                             onerror="this.style.display='none'">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Личный сайт</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                        </div>
+                        <p class="project-description">
+                            Адаптивный сайт-портфолио с современным дизайном
+                        </p>
+                    </div>
+                </article>
+
+                <article class="project-card-large" onclick="openProjectModal(2)">
+                    <div class="project-image-large">
+                        <img src="../images/project2.jpg" alt="Todo-приложение" 
+                             onerror="this.style.display='none'">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Todo-приложение</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">LocalStorage</span>
+                        </div>
+                        <p class="project-description">
+                            Приложение для управления задачами с сохранением данных
+                        </p>
+                    </div>
+                </article>
+
+                <article class="project-card-large" onclick="openProjectModal(3)">
+                    <div class="project-image-large">
+                        <img src="../images/project3.jpg" alt="Интернет-магазин" 
+                             onerror="this.style.display='none'">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Интернет-магазин</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">API</span>
+                        </div>
+                        <p class="project-description">
+                            Прототип интернет-магазина с корзиной товаров
+                        </p>
+                    </div>
+                </article>
+
+                <article class="project-card-large" onclick="openProjectModal(4)">
+                    <div class="project-image-large">
+                        <img src="../images/project4.jpg" alt="Портфолио Bootstrap" 
+                             onerror="this.style.display='none'">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Портфолио Bootstrap</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">Bootstrap</span>
+                            <span class="tech-tag">Responsive</span>
+                        </div>
+                        <p class="project-description">
+                            Адаптивное портфолио с использованием Bootstrap 5
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p class="footer-copyright">&copy; 2025</p>
+                <a href="contacts.html" class="footer-link">Контакты</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Project Modal -->
+    <dialog id="projectModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeProjectModal()">×</button>
+            <div id="modalContent">
+                <!-- Content will be loaded here -->
+            </div>
+        </div>
+    </dialog>
+
+    <script src="../scripts/theme.js"></script>
+    <script src="../scripts/projects.js"></script>
+</body>
+</html>

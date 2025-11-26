@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная - Портфолио студента</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div class="page-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-brand">
+                <div class="logo">🎓</div>
+                <h1 class="header-title">Иванов Иван</h1>
+            </div>
+            <button class="theme-toggle" aria-label="Переключить тему">🌙</button>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="nav-link nav-link--active" href="index.html">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pages/projects.html">Проекты</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pages/diary.html">Дневник</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pages/contacts.html">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h2 class="hero-title">Привет! Я студент</h2>
+                        <p class="hero-subtitle">группы 30БО-99-99</p>
+                        <p class="hero-description">
+                            Увлекаюсь веб-разработкой и создаю современные цифровые решения
+                        </p>
+                        <button class="button button--primary" onclick="downloadResume()">
+                            📄 Скачать резюме
+                        </button>
+                    </div>
+                    <div class="hero-image">
+                        <img src="images/photo.png" alt="Фото студента" class="profile-photo">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section class="skills-section">
+                <h3 class="section-title">Мои навыки</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">HTML/CSS</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Bootstrap</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">React</span>
+                            <span class="skill-percent">60%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section class="projects-preview">
+                <h3 class="section-title">Лучшие проекты</h3>
+                <div class="projects-grid">
+                    <article class="project-card">
+                        <div class="project-image">П1</div>
+                        <h4 class="project-title">Личный сайт</h4>
+                        <p class="project-description">Адаптивный сайт-портфолио</p>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-image">П2</div>
+                        <h4 class="project-title">Todo-приложение</h4>
+                        <p class="project-description">Управление задачами на JavaScript</p>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-image">П3</div>
+                        <h4 class="project-title">Интернет-магазин</h4>
+                        <p class="project-description">Прототип e-commerce платформы</p>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p class="footer-copyright">&copy; 2025</p>
+                <a href="pages/contacts.html" class="footer-link">Контакты</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="scripts/theme.js"></script>
+    <script>
+        function downloadResume() {
+            // В реальном проекте здесь будет ссылка на PDF
+            alert('Резюме скачивается...');
+            // window.open('assets/resume.pdf', '_blank');
+        }
+    </script>
+</body>
+</html>
