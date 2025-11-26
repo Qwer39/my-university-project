@@ -3,193 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная - Мой Университетский Проект</title>
-    <meta name="description" content="Учебный проект по фронтенд и бэкенд разработке">
+    <title>Семестровая работа</title>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <!-- Шапка сайта -->
-    <header class="site-header">
+    <div id="header" class="site-header">
         <div class="container">
-            <div class="site-header__inner">
-                <a href="index.html" class="site-header__brand">Мой Университетский Проект</a>
+            <h1>Портфолио студента</h1>
+        </div>
+    </div>
+
+    <div id="menu" class="site-nav">
+        <nav class="container">
+            <ul class="site-nav__list">
+                <li class="site-nav__item"><a href="index.html" class="site-nav__link site-nav__link--active">Главная</a></li>
+                <li class="site-nav__item"><a href="pages/news.html" class="site-nav__link">Новости</a></li>
+                <li class="site-nav__item"><a href="pages/practices.html" class="site-nav__link">Практики</a></li>
+                <li class="site-nav__item"><a href="pages/goods.html" class="site-nav__link">Товары</a></li>
+                <li class="site-nav__item"><a href="pages/contacts.html" class="site-nav__link">Контакты</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="content" class="main-content container">
+        <section class="section">
+            <h2>Информация об авторе</h2>
+            
+            <div class="author-info">
+                <img src="assets/photo.png" alt="Фото автора" width="200" height="250" class="author-photo">
                 
-                <nav class="site-nav" aria-label="Основная навигация">
-                    <ul class="site-nav__list">
-                        <li class="site-nav__item">
-                            <a href="index.html" class="site-nav__link site-nav__link--active">Главная</a>
-                        </li>
-                        <li class="site-nav__item">
-                            <a href="pages/about.html" class="site-nav__link">О нас</a>
-                        </li>
-                        <li class="site-nav__item">
-                            <a href="pages/contacts.html" class="site-nav__link">Контакты</a>
-                        </li>
-                        <li class="site-nav__item">
-                            <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Переключить тему">
-                                🌓
-                            </button>
-                        </li>
-                    </ul>
-                </nav>
+                <div class="author-details">
+                    <h3>Иванов Иван Иванович</h3>
+                    <p class="author-group">Э06-00-00</p>
+                    
+                    <div class="about-me">
+                        <h4>Обо мне:</h4>
+                        <p>Я родился в Москве в 70-м на краю города. Глупость рано ударила в голову. В четыре активно ругался. Потом школа, форма, драки, клей. Так я становился сильней. Воровал деньги в раздевалке.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </header>
 
-    <main class="main-content">
+            <div class="skills-section">
+                <h4>Мои навыки:</h4>
+                <div class="skills-grid">
+                    <div class="skill-card">HTML & CSS</div>
+                    <div class="skill-card">JavaScript</div>
+                    <div class="skill-card">React</div>
+                    <div class="skill-card">Git</div>
+                </div>
+            </div>
+
+            <div class="experience-section">
+                <h4>Мой опыт работы:</h4>
+                <div class="experience-list">
+                    <div class="experience-item">
+                        <h5>Опыт 1</h5>
+                        <p>Работал фантазёром. Сочинял и праздновал.</p>
+                    </div>
+                    <div class="experience-item">
+                        <h5>Опыт 2</h5>
+                        <p>Работал воровством. Воровал и продавал.</p>
+                    </div>
+                    <div class="experience-item">
+                        <h5>Опыт 3</h5>
+                        <p>Работал рэпером. Читал и пел.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="footer" class="site-footer">
         <div class="container">
-            <!-- Герой-секция с фоновым изображением -->
-            <section class="hero">
-                <h1 class="hero__title">Добро пожаловать!</h1>
-                <p class="hero__description">
-                    Мы создаём современные веб-решения с использованием передовых технологий 
-                    и лучших практик разработки.
-                </p>
-                <button id="openDialog" class="btn btn--primary" type="button">
-                    Начать сотрудничество
-                </button>
-            </section>
-
-            <!-- Секция услуг -->
-            <section class="section" id="services">
-                <h2 class="section__title">Наши услуги</h2>
-                <div class="grid grid-3">
-                    <div class="card">
-                        <img src="assets/web-dev.jpg" alt="Веб-разработка" class="card__image" 
-                             width="400" height="200" loading="lazy">
-                        <h3 class="card__title">Веб-разработка</h3>
-                        <p class="card__description">
-                            Создаём современные и отзывчивые веб-сайты и приложения.
-                        </p>
-                    </div>
-                    <div class="card">
-                        <img src="assets/design.jpg" alt="UI/UX дизайн" class="card__image"
-                             width="400" height="200" loading="lazy">
-                        <h3 class="card__title">UI/UX Дизайн</h3>
-                        <p class="card__description">
-                            Проектируем интуитивные и красивые пользовательские интерфейсы.
-                        </p>
-                    </div>
-                    <div class="card">
-                        <img src="assets/support.jpg" alt="Техническая поддержка" class="card__image"
-                             width="400" height="200" loading="lazy">
-                        <h3 class="card__title">Техническая поддержка</h3>
-                        <p class="card__description">
-                            Обеспечиваем бесперебойную работу ваших digital-продуктов.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Секция портфолио -->
-            <section class="section section--alt" id="portfolio">
-                <h2 class="section__title">Наше портфолио</h2>
-                <p class="text-center mb-4">
-                    Более 50 успешно реализованных проектов для клиентов из разных отраслей.
-                </p>
-                
-                <!-- Responsive изображение -->
-                <div class="media-container mb-4">
-                    <img 
-                        src="assets/portfolio-640.jpg"
-                        srcset="assets/portfolio-640.jpg 640w, assets/portfolio-960.jpg 960w, assets/portfolio-1280.jpg 1280w"
-                        sizes="(max-width: 768px) 92vw, (max-width: 1200px) 640px, 960px"
-                        alt="Пример нашего проекта: современный корпоративный сайт"
-                        width="960" 
-                        height="540"
-                        loading="lazy"
-                        style="width: 100%; height: auto; border-radius: var(--radius);">
-                </div>
-
-                <div class="text-center">
-                    <a href="#contacts" class="btn btn--primary">Обсудить проект</a>
-                </div>
-            </section>
-
-            <!-- Секция контактов -->
-            <section class="section" id="contacts">
-                <h2 class="section__title">Контакты</h2>
-                <div class="grid grid-2">
-                    <div>
-                        <h3>Контактная информация</h3>
-                        <p><strong>Email:</strong> contact@example.com</p>
-                        <p><strong>Телефон:</strong> +7 (495) 123-45-67</p>
-                        <p><strong>Адрес:</strong> г. Москва, ул. Примерная, д. 123</p>
-                    </div>
-                    <div>
-                        <h3>Режим работы</h3>
-                        <p><strong>Пн-Пт:</strong> 9:00-18:00</p>
-                        <p><strong>Сб-Вс:</strong> выходной</p>
-                        <button id="openDialog2" class="btn btn--primary mt-3">
-                            Написать нам
-                        </button>
-                    </div>
-                </div>
-            </section>
+            <p>&copy; 2024 Семестровая работа. Все права защищены.</p>
         </div>
-    </main>
-
-    <!-- Футер -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="site-footer__content">
-                <p class="site-footer__text">&copy; 2024 Мой Университетский Проект. Все права защищены.</p>
-                <p class="site-footer__text">Телефон: +7 (495) 123-45-67</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Модальное окно -->
-    <dialog id="contactDialog" class="dialog" aria-labelledby="dialogTitle">
-        <div class="dialog__header">
-            <h2 id="dialogTitle" class="dialog__title">Обратная связь</h2>
-        </div>
-
-        <form id="contactForm" class="form" method="dialog" novalidate>
-            <div class="form__group">
-                <label for="name" class="form__label">Имя *</label>
-                <input id="name" name="name" type="text" class="form__control" 
-                       required minlength="2" autocomplete="given-name">
-            </div>
-
-            <div class="form__group">
-                <label for="email" class="form__label">E-mail *</label>
-                <input id="email" name="email" type="email" class="form__control" 
-                       required autocomplete="email">
-            </div>
-
-            <div class="form__group">
-                <label for="phone" class="form__label">Телефон *</label>
-                <input id="phone" name="phone" type="tel" class="form__control"
-                       inputmode="tel" autocomplete="tel"
-                       aria-describedby="phoneHelp" placeholder="+7 (900) 000-00-00"
-                       required pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$">
-                <small id="phoneHelp" class="form__help">Формат: +7 (900) 000-00-00</small>
-            </div>
-
-            <div class="form__group">
-                <label for="topic" class="form__label">Тема *</label>
-                <select id="topic" name="topic" class="form__control" required>
-                    <option value="">Выберите тему</option>
-                    <option value="question">Вопрос</option>
-                    <option value="order">Заказ</option>
-                    <option value="cooperation">Сотрудничество</option>
-                </select>
-            </div>
-
-            <div class="form__group">
-                <label for="message" class="form__label">Сообщение *</label>
-                <textarea id="message" name="message" rows="4" class="form__control" required></textarea>
-            </div>
-
-            <div class="form__actions">
-                <button type="button" id="closeDialog" class="btn btn--secondary">Закрыть</button>
-                <button type="submit" class="btn btn--primary">Отправить</button>
-            </div>
-        </form>
-    </dialog>
-
-    <script src="scripts/main.js" defer></script>
-    <script src="scripts/theme.js" defer></script>
+    </div>
 </body>
 </html>

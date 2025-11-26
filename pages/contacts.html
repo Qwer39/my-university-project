@@ -3,89 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Контакты - Мой Университетский Проект</title>
-    <meta name="description" content="Контактная информация компании ТехноЛаб. Свяжитесь с нами для обсуждения вашего проекта">
+    <title>Контакты - Семестровая работа</title>
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
-    <header>
-        <a href="../index.html">Мой Университетский Проект</a>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Главная</a></li>
-                <li><a href="about.html">О нас</a></li>
-                <li><a href="contacts.html">Контакты</a></li>
+    <div id="header" class="site-header">
+        <div class="container">
+            <h1>Контакты</h1>
+        </div>
+    </div>
+
+    <div id="menu" class="site-nav">
+        <nav class="container">
+            <ul class="site-nav__list">
+                <li class="site-nav__item"><a href="../index.html" class="site-nav__link">Главная</a></li>
+                <li class="site-nav__item"><a href="news.html" class="site-nav__link">Новости</a></li>
+                <li class="site-nav__item"><a href="practices.html" class="site-nav__link">Практики</a></li>
+                <li class="site-nav__item"><a href="goods.html" class="site-nav__link">Товары</a></li>
+                <li class="site-nav__item"><a href="contacts.html" class="site-nav__link site-nav__link--active">Контакты</a></li>
             </ul>
         </nav>
-    </header>
+    </div>
 
-    <main>
-        <nav aria-label="Хлебные крошки">
-            <a href="../index.html">Главная</a> - 
-            <span>Контакты</span>
-        </nav>
-
-        <h1>Наши контакты</h1>
-        
-        <section>
-            <h2>Контактная информация</h2>
-            <p><strong>Адрес:</strong> г. Москва, ул. Примерная, д. 123</p>
-            <p><strong>Телефон:</strong> +7 (495) 123-45-67</p>
-            <p><strong>Email:</strong> info@example.com</p>
-            <p><strong>Режим работы:</strong> Пн-Пт: 9:00-18:00</p>
-            
-            <!-- Кнопка открытия модалки -->
-            <button id="openDialog" type="button">Написать нам</button>
-        </section>
-        
-        <section>
-            <h2>Форма обратной связи</h2>
-            <p>Свяжитесь с нами для обсуждения вашего проекта через форму обратной связи.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Мой Университетский Проект</p>
-    </footer>
-
-    <!-- Модальное окно -->
-    <dialog id="contactDialog" aria-labelledby="dialogTitle">
-        <h2 id="dialogTitle">Обратная связь</h2>
-
-        <form id="contactForm" method="dialog" novalidate>
-            <label for="name">Имя *</label>
-            <input id="name" name="name" type="text" required minlength="2" autocomplete="given-name">
-
-            <label for="email">E-mail *</label>
-            <input id="email" name="email" type="email" required autocomplete="email">
-
-            <label for="phone">Телефон *</label>
-            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"
-                   aria-describedby="phoneHelp" placeholder="+7 (900) 000-00-00"
-                   required pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$">
-            <small id="phoneHelp">Формат: +7 (900) 000-00-00</small>
-
-            <label for="date">Дата обращения</label>
-            <input id="date" name="date" type="date">
-
-            <label for="topic">Тема *</label>
-            <select id="topic" name="topic" required>
-                <option value="">Выберите тему</option>
-                <option value="question">Вопрос</option>
-                <option value="order">Заказ</option>
-                <option value="cooperation">Сотрудничество</option>
-            </select>
-
-            <label for="message">Сообщение *</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-
-            <div class="form-actions">
-                <button type="button" id="closeDialog">Закрыть</button>
-                <button type="submit">Отправить</button>
+    <div id="content" class="main-content container">
+        <section class="section">
+            <div class="contact-info">
+                <p><strong>Адрес электронной почты:</strong> astafiev@mirea.ru</p>
+                <p><strong>Адрес:</strong> г. Москва, ул. Пушкина, д. Колотушкина</p>
+                
+                <button class="call-button" onclick="alert('Функция звонка будет реализована позже!')">
+                    Позвоните мне
+                </button>
             </div>
-        </form>
-    </dialog>
+        </section>
+    </div>
 
-    <script src="../scripts/main.js" defer></script>
+    <div id="footer" class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 Семестровая работа. Все права защищены.</p>
+        </div>
+    </div>
 </body>
 </html>
