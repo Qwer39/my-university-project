@@ -7,76 +7,69 @@
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <div id="header" class="site-header">
-        <div class="container">
-            <h1>Портфолио студента</h1>
-        </div>
-    </div>
-
-    <div id="menu" class="site-nav">
-        <nav class="container">
+    <div class="page-container">
+        <div class="site-header">Портфолио студента</div>
+        
+        <nav class="site-nav">
             <ul class="site-nav__list">
-                <li class="site-nav__item"><a href="index.html" class="site-nav__link site-nav__link--active">Главная</a></li>
-                <li class="site-nav__item"><a href="pages/news.html" class="site-nav__link">Новости</a></li>
-                <li class="site-nav__item"><a href="pages/practices.html" class="site-nav__link">Практики</a></li>
-                <li class="site-nav__item"><a href="pages/goods.html" class="site-nav__link">Товары</a></li>
-                <li class="site-nav__item"><a href="pages/contacts.html" class="site-nav__link">Контакты</a></li>
+                <li class="site-nav__item">
+                    <a class="site-nav__link site-nav__link--active" href="index.html">Главная</a>
+                </li>
+                <li class="site-nav__item">
+                    <a class="site-nav__link" href="pages/news.html">Новости</a>
+                </li>
+                <li class="site-nav__item">
+                    <a class="site-nav__link" href="pages/practices.html">Практики</a>
+                </li>
+                <li class="site-nav__item">
+                    <a class="site-nav__link" href="pages/goods.html">Товары</a>
+                </li>
+                <li class="site-nav__item">
+                    <a class="site-nav__link" href="pages/contacts.html">Контакты</a>
+                </li>
             </ul>
         </nav>
-    </div>
-
-    <div id="content" class="main-content container">
-        <section class="section">
-            <h2>Информация об авторе</h2>
-            
-            <div class="author-info">
-                <img src="assets/photo.png" alt="Фото автора" width="200" height="250" class="author-photo">
-                
-                <div class="author-details">
-                    <h3>Иванов Иван Иванович</h3>
-                    <p class="author-group">Э06-00-00</p>
-                    
-                    <div class="about-me">
-                        <h4>Обо мне:</h4>
-                        <p>Я родился в Москве в 70-м на краю города. Глупость рано ударила в голову. В четыре активно ругался. Потом школа, форма, драки, клей. Так я становился сильней. Воровал деньги в раздевалке.</p>
-                    </div>
-                </div>
+        
+        <main class="main-content">
+            <div class="profile-header">
+                <h1 class="profile-title">Информация об авторе</h1>
+                <img class="profile-photo" src="assets/photo.png" alt="Фото автора">
+                <h2 class="profile-name">Иванов Иван Иванович</h2>
+                <p class="profile-group">Э06-00-00</p>
             </div>
 
-            <div class="skills-section">
-                <h4>Мои навыки:</h4>
-                <div class="skills-grid">
-                    <div class="skill-card">HTML & CSS</div>
-                    <div class="skill-card">JavaScript</div>
-                    <div class="skill-card">React</div>
-                    <div class="skill-card">Git</div>
-                </div>
+            <div class="about-me">
+                <p>Обо мне: Я родился в Москве в 70-м на краю города. Глупость рано ударила в голову. В четыре активно ругался.
+                Потом школа, форма, драки, клей. Так я становился сильней. Воровал деньги в раздевалке.</p>
+            </div>
+
+            <div class="skills-container">
+                <div class="skill-tag">HTML & CSS</div>
+                <div class="skill-tag">JavaScript</div>
+                <div class="skill-tag">React</div>
+                <div class="skill-tag">Git</div>
             </div>
 
             <div class="experience-section">
-                <h4>Мой опыт работы:</h4>
-                <div class="experience-list">
-                    <div class="experience-item">
-                        <h5>Опыт 1</h5>
-                        <p>Работал фантазёром. Сочинял и праздновал.</p>
-                    </div>
-                    <div class="experience-item">
-                        <h5>Опыт 2</h5>
-                        <p>Работал воровством. Воровал и продавал.</p>
-                    </div>
-                    <div class="experience-item">
-                        <h5>Опыт 3</h5>
-                        <p>Работал рэпером. Читал и пел.</p>
-                    </div>
+                <h2 class="section-title">Мой опыт работы</h2>
+                <div class="experience-card">
+                    <h3 class="experience-title">Опыт 1</h3>
+                    <p class="experience-desc">Работал фантазёром. Сочинял и праздновал.</p>
+                </div>
+                <div class="experience-card">
+                    <h3 class="experience-title">Опыт 2</h3>
+                    <p class="experience-desc">Работал воровством. Воровал и продавал.</p>
+                </div>
+                <div class="experience-card">
+                    <h3 class="experience-title">Опыт 3</h3>
+                    <p class="experience-desc">Работал рэпером. Читал и пел.</p>
                 </div>
             </div>
-        </section>
-    </div>
-
-    <div id="footer" class="site-footer">
-        <div class="container">
+        </main>
+        
+        <footer class="site-footer">
             <p>&copy; 2024 Семестровая работа. Все права защищены.</p>
-        </div>
+        </footer>
     </div>
 </body>
 </html>
