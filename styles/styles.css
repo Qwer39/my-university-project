@@ -44,13 +44,12 @@ body {
 /* ==== НАВИГАЦИЯ ==== */
 .nav {
     background: #2c3e50;
-    padding: 15px 0;
+    padding: 20px 0;
     grid-area: nav;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    overflow-x: auto; 
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
 }
 
 .nav-list {
@@ -59,43 +58,42 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    gap: 8px;
-    flex-wrap: nowrap;
-    min-width: min-content;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
 .nav-item {
     margin: 0;
-    flex-shrink: 0;
 }
 
 .nav-link {
     color: white;
     text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 6px;
+    padding: 12px 24px;
+    border-radius: 25px;
     transition: all 0.3s ease;
-    font-weight: 500;
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.2);
+    font-weight: 600;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: 2px solid transparent;
     white-space: nowrap;
     display: inline-block;
-    min-width: 100px;
     text-align: center;
-    font-size: 14px;
-    min-width: 80px;
+    font-size: 15px;
+    min-width: 120px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
 .nav-link:hover {
-    background: rgba(255,255,255,0.1);
-    transform: translateY(-1px);
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
     border-color: rgba(255,255,255,0.3);
 }
 
 .nav-link--active {
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.4);
-    box-shadow: 0 2px 8px rgba(255,255,255,0.1);
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4);
+    border: 2px solid rgba(255,255,255,0.5);
 }
 
 /* ==== ОСНОВНОЙ КОНТЕНТ ==== */
@@ -439,19 +437,18 @@ main.content {
 /* ==== АДАПТИВНОСТЬ ==== */
 @media (max-width: 768px) {
     .nav {
-        padding: 12px 0;
+        padding: 15px 0;
     }
     
     .nav-list {
-        justify-content: flex-start; /* Выравниваем по левому краю на мобильных */
-        gap: 6px;
-        padding: 0 10px;
+        gap: 10px;
+        padding: 0 15px;
     }
     
     .nav-link {
-        padding: 8px 12px;
-        font-size: 13px;
-        min-width: 70px;
+        padding: 10px 20px;
+        font-size: 14px;
+        min-width: 100px;
     }
 
     .skills-grid {
@@ -501,22 +498,22 @@ main.content {
 
 @media (max-width: 480px) {
     .header {
-        padding: 15px;
+        padding: 20px;
     }
     
     .nav {
-        padding: 10px 0;
+        padding: 12px 0;
     }
     
     .nav-list {
-        gap: 4px;
-        padding: 0 8px;
+        gap: 8px;
+        padding: 0 10px;
     }
     
     .nav-link {
-        padding: 6px 10px;
-        font-size: 12px;
-        min-width: 60px;
+        padding: 8px 16px;
+        font-size: 13px;
+        min-width: 90px;
     }
     
     .header h1 {
@@ -526,24 +523,6 @@ main.content {
     .header p {
         font-size: 14px;
     }
-}
-
-/* Стили для скроллбара в навигации (если потребуется) */
-.nav::-webkit-scrollbar {
-    height: 4px;
-}
-
-.nav::-webkit-scrollbar-track {
-    background: rgba(255,255,255,0.1);
-}
-
-.nav::-webkit-scrollbar-thumb {
-    background: rgba(255,255,255,0.3);
-    border-radius: 2px;
-}
-
-.nav::-webkit-scrollbar-thumb:hover {
-    background: rgba(255,255,255,0.5);
 }
 
 /* ==== СТИЛИ МОДАЛЬНОГО ОКНА ==== */
