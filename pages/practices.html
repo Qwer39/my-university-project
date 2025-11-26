@@ -8,48 +8,58 @@
 </head>
 <body>
     <div class="page-container">
-        <div class="site-header">Практические работы</div>
-        
-        <nav class="site-nav">
-            <ul class="site-nav__list">
-                <li class="site-nav__item"><a class="site-nav__link" href="../index.html">Главная</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="news.html">Новости</a></li>
-                <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="practices.html">Практики</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="goods.html">Товары</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+        <header class="header">
+            <h1>Портфолио студента</h1>
+            <p>Семестровая работа по веб-разработке</p>
+        </header>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
+                <li class="nav-item"><a class="nav-link nav-link--active" href="practices.html">Практики</a></li>
+                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
             </ul>
         </nav>
-        
-        <main class="main-content">
+
+        <main class="content">
             <h1 class="profile-title">Выполненные практические работы</h1>
             
-            <div class="practice-item">
-                <h3 class="practice-title">Практика 2: Многостраничный сайт</h3>
-                <p class="practice-desc">Создание семантической разметки, навигации, якорных ссылок</p>
-            </div>
-            
-            <div class="practice-item">
-                <h3 class="practice-title">Практика 3: Формы и валидация</h3>
-                <p class="practice-desc">Разработка форм обратной связи с модальными окнами и клиентской валидацией</p>
-            </div>
-            
-            <div class="practice-item">
-                <h3 class="practice-title">Практика 4: CSS-архитектура</h3>
-                <p class="practice-desc">БЭМ методология, CSS переменные, responsive дизайн</p>
-            </div>
+            <div class="practice-grid">
+                <article class="practice-card">
+                    <h3 class="practice-title">Практика 2: Многостраничный сайт</h3>
+                    <p class="practice-desc">Создание семантической разметки, навигации, якорных ссылок. Изучение основ HTML5 и структуры веб-страниц.</p>
+                </article>
+                
+                <article class="practice-card">
+                    <h3 class="practice-title">Практика 3: Формы и валидация</h3>
+                    <p class="practice-desc">Разработка форм обратной связи с модальными окнами и клиентской валидацией. Работа с JavaScript для обработки данных.</p>
+                </article>
+                
+                <article class="practice-card">
+                    <h3 class="practice-title">Практика 4: CSS-архитектура</h3>
+                    <p class="practice-desc">БЭМ методология, CSS переменные, responsive дизайн. Создание адаптивных и поддерживаемых стилей.</p>
+                </article>
 
-            <div class="practice-item">
-                <h3 class="practice-title">Практика 7: Основы HTML</h3>
-                <p class="practice-desc">Создание базовой структуры портфолио проекта</p>
-            </div>
+                <article class="practice-card">
+                    <h3 class="practice-title">Практика 7: Основы HTML</h3>
+                    <p class="practice-desc">Создание базовой структуры портфолио проекта. Изучение семантических тегов и основ доступности.</p>
+                </article>
 
-            <div class="practice-item">
-                <h3 class="practice-title">Практика 8: Основы CSS</h3>
-                <p class="practice-desc">Стилизация веб-страниц с использованием CSS</p>
+                <article class="practice-card">
+                    <h3 class="practice-title">Практика 8: Основы CSS</h3>
+                    <p class="practice-desc">Стилизация веб-страниц с использованием CSS. Работа с Flexbox и Grid для создания современных макетов.</p>
+                </article>
+
+                <article class="practice-card">
+                    <h3 class="practice-title">Практика 9: Семантика и навигация</h3>
+                    <p class="practice-desc">Семантические теги, основы навигации. Flex и Grid системы для создания адаптивных интерфейсов.</p>
+                </article>
             </div>
         </main>
-        
-        <footer class="site-footer">
+
+        <footer class="footer">
             <p>&copy; 2024 Семестровая работа. Все права защищены.</p>
         </footer>
     </div>

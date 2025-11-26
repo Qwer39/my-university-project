@@ -8,32 +8,39 @@
 </head>
 <body>
     <div class="page-container">
-        <div class="site-header">Контакты</div>
-        
-        <nav class="site-nav">
-            <ul class="site-nav__list">
-                <li class="site-nav__item"><a class="site-nav__link" href="../index.html">Главная</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="news.html">Новости</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="practices.html">Практики</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="goods.html">Товары</a></li>
-                <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="contacts.html">Контакты</a></li>
+        <header class="header">
+            <h1>Портфолио студента</h1>
+            <p>Семестровая работа по веб-разработке</p>
+        </header>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
+                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
+                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
+                <li class="nav-item"><a class="nav-link nav-link--active" href="contacts.html">Контакты</a></li>
             </ul>
         </nav>
-        
-        <main class="main-content">
+
+        <main class="content">
             <h1 class="profile-title">Контакты</h1>
             
-            <div class="contact-info">
-                <p><strong>Адрес электронной почты:</strong> astafiev@mirea.ru</p>
-                <p><strong>Адрес:</strong> г. Москва, ул. Пушкина, д. Колотушкина</p>
+            <div class="contacts-container">
+                <div class="contact-info">
+                    <p><strong>Адрес электронной почты:</strong> astafiev@mirea.ru</p>
+                    <p><strong>Телефон:</strong> +7 (999) 123-45-67</p>
+                    <p><strong>Адрес:</strong> г. Москва, ул. Пушкина, д. Колотушкина</p>
+                    <p><strong>Группа:</strong> Э06-00-00</p>
+                </div>
                 
-                <button class="call-button" onclick="alert('Функция звонка будет реализована позже!')">
-                    Позвоните мне
+                <button class="contact-button" onclick="alert('Функция звонка будет реализована в следующей практике! 📞')">
+                    📞 Позвоните мне
                 </button>
             </div>
         </main>
-        
-        <footer class="site-footer">
+
+        <footer class="footer">
             <p>&copy; 2024 Семестровая работа. Все права защищены.</p>
         </footer>
     </div>
