@@ -1,19 +1,38 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Семестровая работа</title>
     <link rel="stylesheet" href="styles/styles.css">
+    
+    <style>
+        /* Inline стили для проверки */
+        .inline-test {
+            color: red;
+            font-weight: bold;
+            padding: 10px;
+            margin: 10px;
+            border: 2px dashed green;
+        }
+    </style>
 </head>
 <body>
+    <!-- ДИАГНОСТИКА -->
+    <div class="inline-test">
+        ✅ ДИАГНОСТИКА: Если эта рамка зеленая и текст красный - HTML и inline CSS работают
+    </div>
+
     <div class="page-container">
-        <div class="site-header">Портфолио студента</div>
+        <header class="site-header">
+            <h1>Портфолио студента</h1>
+            <div class="debug-test">🚨 Если этот блок с красной рамкой и желтым фоном - ВНЕШНИЙ CSS РАБОТАЕТ!</div>
+        </header>
         
         <nav class="site-nav">
             <ul class="site-nav__list">
                 <li class="site-nav__item">
-                    <a class="site-nav__link site-nav__link--active" href="index.html">Главная</a>
+                    <a class="site-nav__link" href="index.html">Главная</a>
                 </li>
                 <li class="site-nav__item">
                     <a class="site-nav__link" href="pages/news.html">Новости</a>
@@ -33,7 +52,7 @@
         <main class="main-content">
             <div class="profile-header">
                 <h1 class="profile-title">Информация об авторе</h1>
-                <img class="profile-photo" src="assets/photo.png" alt="Фото автора">
+                <div class="profile-photo"></div>
                 <h2 class="profile-name">Иванов Иван Иванович</h2>
                 <p class="profile-group">Э06-00-00</p>
             </div>
@@ -71,5 +90,24 @@
             <p>&copy; 2024 Семестровая работа. Все права защищены.</p>
         </footer>
     </div>
+
+    <script>
+        console.log("✅ HTML загружен");
+        
+        // Проверка загрузки CSS
+        setTimeout(() => {
+            const testElement = document.querySelector('.debug-test');
+            if (testElement) {
+                const styles = window.getComputedStyle(testElement);
+                if (styles.backgroundColor === 'rgb(255, 255, 0)') { // yellow
+                    console.log("✅ ВНЕШНИЙ CSS РАБОТАЕТ!");
+                    document.title = "✅ CSS работает - " + document.title;
+                } else {
+                    console.log("❌ Внешний CSS не загружен");
+                    document.title = "❌ CSS не работает - " + document.title;
+                }
+            }
+        }, 100);
+    </script>
 </body>
 </html>

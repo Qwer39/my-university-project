@@ -1,333 +1,173 @@
-/* ==== БАЗОВЫЕ СТИЛИ ==== */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
+﻿/* ГАРАНТИРОВАННО РАБОТАЮЩИЕ СТИЛИ */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
 }
 
-/* ==== КОНТЕЙНЕР СТРАНИЦЫ ==== */
+body { 
+    font-family: Arial, sans-serif; 
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
 .page-container {
     max-width: 1200px;
     margin: 0 auto;
     background: white;
-    min-height: 100vh;
-    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    overflow: hidden;
 }
 
-/* ==== ШАПКА ==== */
 .site-header {
     background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
     color: white;
-    text-align: center;
     padding: 30px;
+    text-align: center;
     font-size: 28px;
-    font-weight: 300;
-    letter-spacing: 2px;
 }
 
-/* ==== НАВИГАЦИЯ ==== */
 .site-nav {
     background: #2c3e50;
-    padding: 20px 0;
+    padding: 20px;
 }
 
 .site-nav__list {
     list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
-    gap: 25px;
-}
-
-.site-nav__item {
-    margin: 0;
+    gap: 20px;
 }
 
 .site-nav__link {
     color: white;
     text-decoration: none;
-    padding: 12px 25px;
+    padding: 10px 20px;
+    background: #667eea;
     border-radius: 25px;
     transition: all 0.3s ease;
-    font-weight: 500;
 }
 
 .site-nav__link:hover {
-    background: rgba(255,255,255,0.1);
+    background: #5a6fd8;
     transform: translateY(-2px);
 }
 
-.site-nav__link--active {
-    background: rgba(255,255,255,0.15);
-    font-weight: 600;
-}
-
-/* ==== ОСНОВНОЙ КОНТЕНТ ==== */
 .main-content {
     padding: 40px;
-    max-width: 900px;
-    margin: 0 auto;
 }
 
-/* ==== ГЛАВНАЯ СТРАНИЦА ==== */
+.site-footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Стили для контента */
 .profile-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .profile-title {
-    font-size: 32px;
     color: #2c3e50;
-    margin-bottom: 10px;
-    font-weight: 300;
+    margin-bottom: 20px;
 }
 
 .profile-photo {
-    width: 220px;
-    height: 280px;
-    border-radius: 15px;
-    object-fit: cover;
+    width: 200px;
+    height: 250px;
+    border: 5px solid #667eea;
+    border-radius: 10px;
+    display: block;
     margin: 20px auto;
-    border: 4px solid #667eea;
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    background: #f0f0f0;
 }
 
 .profile-name {
-    font-size: 24px;
     color: #2c3e50;
+    font-size: 24px;
     margin: 10px 0;
-    font-weight: 500;
 }
 
 .profile-group {
-    font-size: 18px;
     color: #7f8c8d;
-    margin: 5px 0;
+    font-size: 18px;
 }
 
 .about-me {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    padding: 25px;
-    border-radius: 15px;
-    margin: 30px 0;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
     border-left: 5px solid #667eea;
-    font-size: 16px;
-    line-height: 1.8;
 }
 
-/* ==== НАВЫКИ ==== */
 .skills-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 15px;
-    margin: 30px 0;
+    gap: 10px;
+    margin: 20px 0;
 }
 
 .skill-tag {
     background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
     color: white;
-    padding: 12px 25px;
-    border-radius: 25px;
-    font-weight: 600;
-    font-size: 14px;
-    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
-    transition: all 0.3s ease;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
 }
 
-.skill-tag:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4);
-}
-
-/* ==== ОПЫТ РАБОТЫ ==== */
 .experience-section {
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .section-title {
-    font-size: 28px;
     color: #2c3e50;
     text-align: center;
-    margin-bottom: 30px;
-    font-weight: 300;
+    margin-bottom: 20px;
 }
 
 .experience-card {
-    background: white;
-    padding: 25px;
-    margin: 20px 0;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    border-left: 4px solid #667eea;
-    transition: transform 0.3s ease;
-}
-
-.experience-card:hover {
-    transform: translateX(5px);
+    background: #f8f9fa;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    border-left: 5px solid #667eea;
 }
 
 .experience-title {
-    font-size: 20px;
     color: #2c3e50;
-    margin: 0 0 10px 0;
-    font-weight: 600;
+    margin-bottom: 10px;
 }
 
 .experience-desc {
     color: #7f8c8d;
     line-height: 1.6;
-    margin: 0;
 }
 
-/* ==== ФУТЕР ==== */
-.site-footer {
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    color: white;
-    text-align: center;
-    padding: 30px;
-    margin-top: 50px;
-}
-
-/* ==== СТИЛИ ДЛЯ ДРУГИХ СТРАНИЦ ==== */
-
-/* Новости */
-.news-article {
-    background: white;
-    padding: 25px;
-    margin: 20px 0;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    border-left: 4px solid #667eea;
-    transition: transform 0.3s ease;
-}
-
-.news-article:hover {
-    transform: translateX(5px);
-}
-
-.news-meta {
-    color: #7f8c8d;
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-/* Товары */
-.goods-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
-}
-
-.goods-item {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.goods-item:hover {
-    transform: translateY(-5px);
-}
-
-.goods-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-.goods-price {
-    color: #2c3e50;
-    font-weight: 600;
-    font-size: 18px;
-    margin: 10px 0;
-}
-
-/* Контакты */
-.contact-info {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    padding: 30px;
-    border-radius: 15px;
-    margin: 30px 0;
-    border-left: 5px solid #667eea;
-}
-
-.call-button {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 20px;
-}
-
-.call-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4);
-}
-
-/* Практики */
-.practice-item {
-    background: white;
-    padding: 25px;
-    margin: 20px 0;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    border-left: 4px solid #667eea;
-    transition: transform 0.3s ease;
-}
-
-.practice-item:hover {
-    transform: translateX(5px);
-}
-
-.practice-title {
-    font-size: 20px;
-    color: #2c3e50;
-    margin: 0 0 10px 0;
-    font-weight: 600;
-}
-
-.practice-desc {
-    color: #7f8c8d;
-    line-height: 1.6;
-    margin: 0;
+/* ЯРКИЕ СТИЛИ ДЛЯ ДИАГНОСТИКИ */
+.debug-test {
+    border: 3px solid red !important;
+    padding: 10px;
+    margin: 10px;
+    background: yellow !important;
+    color: black !important;
+    font-weight: bold;
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
     .site-nav__list {
         flex-direction: column;
-        gap: 10px;
+        align-items: center;
     }
     
     .main-content {
         padding: 20px;
-    }
-    
-    .skills-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .goods-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .site-header {
-        padding: 20px;
-        font-size: 24px;
     }
 }
