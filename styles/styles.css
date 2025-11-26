@@ -59,11 +59,14 @@ body {
     display: flex;
     justify-content: center;
     gap: 15px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 0 15px;
 }
 
 .nav-item {
     margin: 0;
+    flex-shrink: 0;
 }
 
 .nav-link {
@@ -442,7 +445,8 @@ main.content {
     
     .nav-list {
         gap: 10px;
-        padding: 0 15px;
+        padding: 0 10px;
+        justify-content: flex-start;
     }
     
     .nav-link {
@@ -523,6 +527,24 @@ main.content {
     .header p {
         font-size: 14px;
     }
+}
+
+.nav-list::-webkit-scrollbar {
+    height: 4px;
+}
+
+.nav-list::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+}
+
+.nav-list::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.3);
+    border-radius: 2px;
+}
+
+.nav-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.5);
 }
 
 /* ==== СТИЛИ МОДАЛЬНОГО ОКНА ==== */
