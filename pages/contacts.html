@@ -3,20 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Контакты - ТехноЛаб</title>
+    <title>Контакты - Мой Университетский Проект</title>
     <meta name="description" content="Контактная информация компании ТехноЛаб. Свяжитесь с нами для обсуждения вашего проекта">
-    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">  <!-- Обновленный путь -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Контакты ТехноЛаб">
-    <meta property="og:description" content="Свяжитесь с нами для разработки вашего проекта">
-    <meta property="og:image" content="https://ваш-логин.github.io/ваш-репозитория/assets/og-image.jpg">
+    <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
     <header>
-        <a href="../index.html">ТехноЛаб</a>  <!-- Обновленный путь -->
+        <a href="../index.html">Мой Университетский Проект</a>
         <nav>
             <ul>
-                <li><a href="../index.html">Главная</a></li>  <!-- Обновленный путь -->
+                <li><a href="../index.html">Главная</a></li>
                 <li><a href="about.html">О нас</a></li>
                 <li><a href="contacts.html">Контакты</a></li>
             </ul>
@@ -25,7 +21,7 @@
 
     <main>
         <nav aria-label="Хлебные крошки">
-            <a href="../index.html">Главная</a> -  <!-- Обновленный путь -->
+            <a href="../index.html">Главная</a> - 
             <span>Контакты</span>
         </nav>
 
@@ -35,21 +31,61 @@
             <h2>Контактная информация</h2>
             <p><strong>Адрес:</strong> г. Москва, ул. Примерная, д. 123</p>
             <p><strong>Телефон:</strong> +7 (495) 123-45-67</p>
-            <p><strong>Email:</strong> info@technolab.ru</p>
+            <p><strong>Email:</strong> info@example.com</p>
             <p><strong>Режим работы:</strong> Пн-Пт: 9:00-18:00</p>
+            
+            <!-- Кнопка открытия модалки -->
+            <button id="openDialog" type="button">Написать нам</button>
         </section>
         
         <section>
             <h2>Форма обратной связи</h2>
-            <p>Свяжитесь с нами для обсуждения вашего проекта:</p>
-            <p>Email: project@technolab.ru</p>
-            <p>Или заполните форму на сайте (будет добавлена позже)</p>
+            <p>Свяжитесь с нами для обсуждения вашего проекта через форму обратной связи.</p>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 ТехноЛаб. Все права защищены.</p>
-        <p>Телефон: +7 (495) 123-45-67</p>
+        <p>&copy; 2024 Мой Университетский Проект</p>
     </footer>
+
+    <!-- Модальное окно -->
+    <dialog id="contactDialog" aria-labelledby="dialogTitle">
+        <h2 id="dialogTitle">Обратная связь</h2>
+
+        <form id="contactForm" method="dialog" novalidate>
+            <label for="name">Имя *</label>
+            <input id="name" name="name" type="text" required minlength="2" autocomplete="given-name">
+
+            <label for="email">E-mail *</label>
+            <input id="email" name="email" type="email" required autocomplete="email">
+
+            <label for="phone">Телефон *</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"
+                   aria-describedby="phoneHelp" placeholder="+7 (900) 000-00-00"
+                   required pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$">
+            <small id="phoneHelp">Формат: +7 (900) 000-00-00</small>
+
+            <label for="date">Дата обращения</label>
+            <input id="date" name="date" type="date">
+
+            <label for="topic">Тема *</label>
+            <select id="topic" name="topic" required>
+                <option value="">Выберите тему</option>
+                <option value="question">Вопрос</option>
+                <option value="order">Заказ</option>
+                <option value="cooperation">Сотрудничество</option>
+            </select>
+
+            <label for="message">Сообщение *</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <div class="form-actions">
+                <button type="button" id="closeDialog">Закрыть</button>
+                <button type="submit">Отправить</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="../scripts/main.js" defer></script>
 </body>
 </html>

@@ -3,20 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>О нас - ТехноЛаб</title>
-    <meta name="description" content="Узнайте больше о нашей компании ТехноЛаб, нашей истории и команде профессионалов">
-    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">  <!-- Обновленный путь -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="О компании ТехноЛаб">
-    <meta property="og:description" content="История и команда компании ТехноЛаб">
-    <meta property="og:image" content="https://ваш-логин.github.io/ваш-репозитория/assets/og-image.jpg">
+    <title>О нас - Мой Университетский Проект</title>
+    <meta name="description" content="Информация о нашем проекте и команде">
+    <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
     <header>
-        <a href="../index.html">ТехноЛаб</a>  <!-- Обновленный путь -->
+        <a href="../index.html">Мой Университетский Проект</a>
         <nav>
             <ul>
-                <li><a href="../index.html">Главная</a></li>  <!-- Обновленный путь -->
+                <li><a href="../index.html">Главная</a></li>
                 <li><a href="about.html">О нас</a></li>
                 <li><a href="contacts.html">Контакты</a></li>
             </ul>
@@ -25,7 +21,7 @@
 
     <main>
         <nav aria-label="Хлебные крошки">
-            <a href="../index.html">Главная</a> -  <!-- Обновленный путь -->
+            <a href="../index.html">Главная</a> - 
             <span>О нас</span>
         </nav>
 
@@ -33,20 +29,61 @@
         
         <section>
             <h2>Наша история</h2>
-            <p>ТехноЛаб была основана в 2018 году с целью предоставления качественных IT-решений.</p>
-            <p>За 6 лет мы выросли из маленькой студии в надежного партнера для бизнеса.</p>
+            <p>Мы начали свою деятельность в 2024 году как учебный проект по веб-разработке.</p>
+            <p>Наша цель - создавать качественные и современные веб-решения.</p>
         </section>
         
         <section>
             <h2>Наша команда</h2>
-            <p>В нашей команде работают 15 профессионалов: разработчики, дизайнеры и менеджеры проектов.</p>
-            <p>Мы постоянно обучаемся и следим за последними тенденциями в веб-разработке.</p>
+            <p>Наша команда состоит из passionate разработчиков, которые постоянно обучаются и следят за последними тенденциями в веб-разработке.</p>
+            
+            <!-- Кнопка открытия модалки -->
+            <button id="openDialog" type="button">Связаться с нами</button>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 ТехноЛаб. Все права защищены.</p>
-        <p>Телефон: +7 (495) 123-45-67</p>
+        <p>&copy; 2024 Мой Университетский Проект</p>
     </footer>
+
+    <!-- Модальное окно -->
+    <dialog id="contactDialog" aria-labelledby="dialogTitle">
+        <h2 id="dialogTitle">Обратная связь</h2>
+
+        <form id="contactForm" method="dialog" novalidate>
+            <label for="name">Имя *</label>
+            <input id="name" name="name" type="text" required minlength="2" autocomplete="given-name">
+
+            <label for="email">E-mail *</label>
+            <input id="email" name="email" type="email" required autocomplete="email">
+
+            <label for="phone">Телефон *</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"
+                   aria-describedby="phoneHelp" placeholder="+7 (900) 000-00-00"
+                   required pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$">
+            <small id="phoneHelp">Формат: +7 (900) 000-00-00</small>
+
+            <label for="date">Дата обращения</label>
+            <input id="date" name="date" type="date">
+
+            <label for="topic">Тема *</label>
+            <select id="topic" name="topic" required>
+                <option value="">Выберите тему</option>
+                <option value="question">Вопрос</option>
+                <option value="order">Заказ</option>
+                <option value="cooperation">Сотрудничество</option>
+            </select>
+
+            <label for="message">Сообщение *</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <div class="form-actions">
+                <button type="button" id="closeDialog">Закрыть</button>
+                <button type="submit">Отправить</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="../scripts/main.js" defer></script>
 </body>
 </html>

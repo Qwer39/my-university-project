@@ -1,0 +1,186 @@
+/* БАЗА: читаемость и предсказуемость размеров */
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+body { 
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; 
+    line-height: 1.5; 
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Стили для header и навигации */
+header {
+    background: #f8f9fa;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #007bff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+nav a:hover {
+    background: #e9ecef;
+}
+
+/* Формы: размеры, отступы, визуальный порядок */
+label { 
+    display: block; 
+    margin: 1rem 0 0.25rem; 
+    font-weight: 500;
+}
+
+input, select, textarea, button {
+    width: 100%;
+    max-width: 480px;
+    padding: .5rem .75rem;
+    border: 1px solid #c8c8c8;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+/* Кнопка по умолчанию */
+button, [type="submit"] {
+    background: #0a84ff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    max-width: none;
+    width: auto;
+    transition: filter 0.2s;
+}
+
+/* Состояния: клавиатура/мышь/ошибки */
+:where(input, select, textarea, button):focus-visible {
+    outline: 2px solid #0a84ff; 
+    outline-offset: 2px;
+}
+
+button:hover { 
+    filter: brightness(0.95); 
+}
+
+:disabled, [aria-disabled="true"] { 
+    opacity: .6; 
+    cursor: not-allowed; 
+}
+
+/* Подсветка ошибочных полей */
+[aria-invalid="true"] { 
+    border-color: #b00020; 
+    background-color: #fff5f5;
+}
+
+/* Стили для модального окна */
+dialog { 
+    padding: 1.25rem; 
+    border: none; 
+    border-radius: 12px; 
+    width: min(90vw, 500px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+dialog::backdrop { 
+    background: rgba(0,0,0,.5); 
+    backdrop-filter: blur(2px);
+}
+
+.form-actions { 
+    display: flex; 
+    gap: .5rem; 
+    margin-top: 1.5rem; 
+    justify-content: flex-end;
+}
+
+small {
+    color: #666;
+    font-size: 0.875rem;
+    display: block;
+    margin-top: 0.25rem;
+}
+
+/* Секции на главной */
+section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    background: #fff;
+}
+
+section h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+/* Футер */
+footer {
+    margin-top: 3rem;
+    padding: 1rem;
+    text-align: center;
+    color: #666;
+    border-top: 1px solid #e9ecef;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    dialog {
+        margin: auto;
+        width: 95vw;
+    }
+}
+
+/* Утилитарные классы */
+.required::after {
+    content: " *";
+    color: #b00020;
+}
