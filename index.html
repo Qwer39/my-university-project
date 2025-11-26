@@ -5,109 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Семестровая работа</title>
     <link rel="stylesheet" href="styles/styles.css">
-    
-    <style>
-        /* Inline стили для проверки */
-        .inline-test {
-            color: red;
-            font-weight: bold;
-            padding: 10px;
-            margin: 10px;
-            border: 2px dashed green;
-        }
-    </style>
 </head>
 <body>
-    <!-- ДИАГНОСТИКА -->
-    <div class="inline-test">
-        ✅ ДИАГНОСТИКА: Если эта рамка зеленая и текст красный - HTML и inline CSS работают
-    </div>
-
     <div class="page-container">
-        <header class="site-header">
-            <h1>Портфолио студента</h1>
-            <div class="debug-test">🚨 Если этот блок с красной рамкой и желтым фоном - ВНЕШНИЙ CSS РАБОТАЕТ!</div>
+        <header class="header">
+            <h1>X2App</h1>
         </header>
-        
-        <nav class="site-nav">
-            <ul class="site-nav__list">
-                <li class="site-nav__item">
-                    <a class="site-nav__link" href="index.html">Главная</a>
-                </li>
-                <li class="site-nav__item">
-                    <a class="site-nav__link" href="pages/news.html">Новости</a>
-                </li>
-                <li class="site-nav__item">
-                    <a class="site-nav__link" href="pages/practices.html">Практики</a>
-                </li>
-                <li class="site-nav__item">
-                    <a class="site-nav__link" href="pages/goods.html">Товары</a>
-                </li>
-                <li class="site-nav__item">
-                    <a class="site-nav__link" href="pages/contacts.html">Контакты</a>
-                </li>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/news.html">Новости</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/practices.html">Практики</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/goods.html">Товары</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/contacts.html">Контакты</a></li>
             </ul>
         </nav>
-        
-        <main class="main-content">
-            <div class="profile-header">
+
+        <main class="content">
+            <article class="profile-header">
                 <h1 class="profile-title">Информация об авторе</h1>
-                <div class="profile-photo"></div>
+                <img class="profile-photo" src="assets/photo.png" alt="Фото автора">
                 <h2 class="profile-name">Иванов Иван Иванович</h2>
                 <p class="profile-group">Э06-00-00</p>
-            </div>
+            </article>
 
-            <div class="about-me">
+            <section class="about-me">
+                <h2>Обо мне</h2>
                 <p>Обо мне: Я родился в Москве в 70-м на краю города. Глупость рано ударила в голову. В четыре активно ругался.
                 Потом школа, форма, драки, клей. Так я становился сильней. Воровал деньги в раздевалке.</p>
-            </div>
+            </section>
 
-            <div class="skills-container">
-                <div class="skill-tag">HTML & CSS</div>
-                <div class="skill-tag">JavaScript</div>
-                <div class="skill-tag">React</div>
-                <div class="skill-tag">Git</div>
-            </div>
+            <section class="skills-container">
+                <h2>Мои навыки</h2>
+                <div class="skills-grid">
+                    <div class="skill-tag">HTML & CSS</div>
+                    <div class="skill-tag">JavaScript</div>
+                    <div class="skill-tag">React</div>
+                    <div class="skill-tag">Git</div>
+                </div>
+            </section>
 
-            <div class="experience-section">
+            <section class="experience-section">
                 <h2 class="section-title">Мой опыт работы</h2>
-                <div class="experience-card">
-                    <h3 class="experience-title">Опыт 1</h3>
-                    <p class="experience-desc">Работал фантазёром. Сочинял и праздновал.</p>
+                <div class="experience-grid">
+                    <article class="experience-card">
+                        <h3 class="experience-title">Опыт 1</h3>
+                        <p class="experience-desc">Работал фантазёром. Сочинял и праздновал.</p>
+                    </article>
+                    <article class="experience-card">
+                        <h3 class="experience-title">Опыт 2</h3>
+                        <p class="experience-desc">Работал воровством. Воровал и продавал.</p>
+                    </article>
+                    <article class="experience-card">
+                        <h3 class="experience-title">Опыт 3</h3>
+                        <p class="experience-desc">Работал рэпером. Читал и пел.</p>
+                    </article>
                 </div>
-                <div class="experience-card">
-                    <h3 class="experience-title">Опыт 2</h3>
-                    <p class="experience-desc">Работал воровством. Воровал и продавал.</p>
-                </div>
-                <div class="experience-card">
-                    <h3 class="experience-title">Опыт 3</h3>
-                    <p class="experience-desc">Работал рэпером. Читал и пел.</p>
-                </div>
-            </div>
+            </section>
         </main>
-        
-        <footer class="site-footer">
+
+        <footer class="footer">
             <p>&copy; 2024 Семестровая работа. Все права защищены.</p>
         </footer>
     </div>
-
-    <script>
-        console.log("✅ HTML загружен");
-        
-        // Проверка загрузки CSS
-        setTimeout(() => {
-            const testElement = document.querySelector('.debug-test');
-            if (testElement) {
-                const styles = window.getComputedStyle(testElement);
-                if (styles.backgroundColor === 'rgb(255, 255, 0)') { // yellow
-                    console.log("✅ ВНЕШНИЙ CSS РАБОТАЕТ!");
-                    document.title = "✅ CSS работает - " + document.title;
-                } else {
-                    console.log("❌ Внешний CSS не загружен");
-                    document.title = "❌ CSS не работает - " + document.title;
-                }
-            }
-        }, 100);
-    </script>
 </body>
 </html>
