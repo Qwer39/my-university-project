@@ -8,82 +8,188 @@
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <header>
-        <a href="index.html">Мой Университетский Проект</a>
-        <nav>
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="pages/about.html">О нас</a></li>
-                <li><a href="pages/contacts.html">Контакты</a></li>
-            </ul>
-        </nav>
+    <!-- Шапка сайта -->
+    <header class="site-header">
+        <div class="container">
+            <div class="site-header__inner">
+                <a href="index.html" class="site-header__brand">Мой Университетский Проект</a>
+                
+                <nav class="site-nav" aria-label="Основная навигация">
+                    <ul class="site-nav__list">
+                        <li class="site-nav__item">
+                            <a href="index.html" class="site-nav__link site-nav__link--active">Главная</a>
+                        </li>
+                        <li class="site-nav__item">
+                            <a href="pages/about.html" class="site-nav__link">О нас</a>
+                        </li>
+                        <li class="site-nav__item">
+                            <a href="pages/contacts.html" class="site-nav__link">Контакты</a>
+                        </li>
+                        <li class="site-nav__item">
+                            <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Переключить тему">
+                                🌓
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <h1>Добро пожаловать!</h1>
-        
-        <section id="services">
-            <h2>Наши услуги</h2>
-            <p>Мы занимаемся веб-разработкой и созданием современных IT-решений.</p>
-            
-            <!-- Кнопка открытия модалки -->
-            <button id="openDialog" type="button">Написать нам</button>
-        </section>
+    <main class="main-content">
+        <div class="container">
+            <!-- Герой-секция с фоновым изображением -->
+            <section class="hero">
+                <h1 class="hero__title">Добро пожаловать!</h1>
+                <p class="hero__description">
+                    Мы создаём современные веб-решения с использованием передовых технологий 
+                    и лучших практик разработки.
+                </p>
+                <button id="openDialog" class="btn btn--primary" type="button">
+                    Начать сотрудничество
+                </button>
+            </section>
 
-        <section id="portfolio">
-            <h2>Наши работы</h2>
-            <p>Здесь будут представлены наши проекты и достижения.</p>
-        </section>
+            <!-- Секция услуг -->
+            <section class="section" id="services">
+                <h2 class="section__title">Наши услуги</h2>
+                <div class="grid grid-3">
+                    <div class="card">
+                        <img src="assets/web-dev.jpg" alt="Веб-разработка" class="card__image" 
+                             width="400" height="200" loading="lazy">
+                        <h3 class="card__title">Веб-разработка</h3>
+                        <p class="card__description">
+                            Создаём современные и отзывчивые веб-сайты и приложения.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <img src="assets/design.jpg" alt="UI/UX дизайн" class="card__image"
+                             width="400" height="200" loading="lazy">
+                        <h3 class="card__title">UI/UX Дизайн</h3>
+                        <p class="card__description">
+                            Проектируем интуитивные и красивые пользовательские интерфейсы.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <img src="assets/support.jpg" alt="Техническая поддержка" class="card__image"
+                             width="400" height="200" loading="lazy">
+                        <h3 class="card__title">Техническая поддержка</h3>
+                        <p class="card__description">
+                            Обеспечиваем бесперебойную работу ваших digital-продуктов.
+                        </p>
+                    </div>
+                </div>
+            </section>
 
-        <section id="contacts">
-            <h2>Контакты</h2>
-            <p>Email: contact@example.com</p>
-            <p>Телефон: +7 (495) 123-45-67</p>
-        </section>
+            <!-- Секция портфолио -->
+            <section class="section section--alt" id="portfolio">
+                <h2 class="section__title">Наше портфолио</h2>
+                <p class="text-center mb-4">
+                    Более 50 успешно реализованных проектов для клиентов из разных отраслей.
+                </p>
+                
+                <!-- Responsive изображение -->
+                <div class="media-container mb-4">
+                    <img 
+                        src="assets/portfolio-640.jpg"
+                        srcset="assets/portfolio-640.jpg 640w, assets/portfolio-960.jpg 960w, assets/portfolio-1280.jpg 1280w"
+                        sizes="(max-width: 768px) 92vw, (max-width: 1200px) 640px, 960px"
+                        alt="Пример нашего проекта: современный корпоративный сайт"
+                        width="960" 
+                        height="540"
+                        loading="lazy"
+                        style="width: 100%; height: auto; border-radius: var(--radius);">
+                </div>
+
+                <div class="text-center">
+                    <a href="#contacts" class="btn btn--primary">Обсудить проект</a>
+                </div>
+            </section>
+
+            <!-- Секция контактов -->
+            <section class="section" id="contacts">
+                <h2 class="section__title">Контакты</h2>
+                <div class="grid grid-2">
+                    <div>
+                        <h3>Контактная информация</h3>
+                        <p><strong>Email:</strong> contact@example.com</p>
+                        <p><strong>Телефон:</strong> +7 (495) 123-45-67</p>
+                        <p><strong>Адрес:</strong> г. Москва, ул. Примерная, д. 123</p>
+                    </div>
+                    <div>
+                        <h3>Режим работы</h3>
+                        <p><strong>Пн-Пт:</strong> 9:00-18:00</p>
+                        <p><strong>Сб-Вс:</strong> выходной</p>
+                        <button id="openDialog2" class="btn btn--primary mt-3">
+                            Написать нам
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Мой Университетский Проект</p>
+    <!-- Футер -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="site-footer__content">
+                <p class="site-footer__text">&copy; 2024 Мой Университетский Проект. Все права защищены.</p>
+                <p class="site-footer__text">Телефон: +7 (495) 123-45-67</p>
+            </div>
+        </div>
     </footer>
 
     <!-- Модальное окно -->
-    <dialog id="contactDialog" aria-labelledby="dialogTitle">
-        <h2 id="dialogTitle">Обратная связь</h2>
+    <dialog id="contactDialog" class="dialog" aria-labelledby="dialogTitle">
+        <div class="dialog__header">
+            <h2 id="dialogTitle" class="dialog__title">Обратная связь</h2>
+        </div>
 
-        <form id="contactForm" method="dialog" novalidate>
-            <label for="name">Имя *</label>
-            <input id="name" name="name" type="text" required minlength="2" autocomplete="given-name">
+        <form id="contactForm" class="form" method="dialog" novalidate>
+            <div class="form__group">
+                <label for="name" class="form__label">Имя *</label>
+                <input id="name" name="name" type="text" class="form__control" 
+                       required minlength="2" autocomplete="given-name">
+            </div>
 
-            <label for="email">E-mail *</label>
-            <input id="email" name="email" type="email" required autocomplete="email">
+            <div class="form__group">
+                <label for="email" class="form__label">E-mail *</label>
+                <input id="email" name="email" type="email" class="form__control" 
+                       required autocomplete="email">
+            </div>
 
-            <label for="phone">Телефон *</label>
-            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"
-                   aria-describedby="phoneHelp" placeholder="+7 (900) 000-00-00"
-                   required pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$">
-            <small id="phoneHelp">Формат: +7 (900) 000-00-00</small>
+            <div class="form__group">
+                <label for="phone" class="form__label">Телефон *</label>
+                <input id="phone" name="phone" type="tel" class="form__control"
+                       inputmode="tel" autocomplete="tel"
+                       aria-describedby="phoneHelp" placeholder="+7 (900) 000-00-00"
+                       required pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$">
+                <small id="phoneHelp" class="form__help">Формат: +7 (900) 000-00-00</small>
+            </div>
 
-            <label for="date">Дата обращения</label>
-            <input id="date" name="date" type="date">
+            <div class="form__group">
+                <label for="topic" class="form__label">Тема *</label>
+                <select id="topic" name="topic" class="form__control" required>
+                    <option value="">Выберите тему</option>
+                    <option value="question">Вопрос</option>
+                    <option value="order">Заказ</option>
+                    <option value="cooperation">Сотрудничество</option>
+                </select>
+            </div>
 
-            <label for="topic">Тема *</label>
-            <select id="topic" name="topic" required>
-                <option value="">Выберите тему</option>
-                <option value="question">Вопрос</option>
-                <option value="order">Заказ</option>
-                <option value="cooperation">Сотрудничество</option>
-            </select>
+            <div class="form__group">
+                <label for="message" class="form__label">Сообщение *</label>
+                <textarea id="message" name="message" rows="4" class="form__control" required></textarea>
+            </div>
 
-            <label for="message">Сообщение *</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-
-            <div class="form-actions">
-                <button type="button" id="closeDialog">Закрыть</button>
-                <button type="submit">Отправить</button>
+            <div class="form__actions">
+                <button type="button" id="closeDialog" class="btn btn--secondary">Закрыть</button>
+                <button type="submit" class="btn btn--primary">Отправить</button>
             </div>
         </form>
     </dialog>
 
     <script src="scripts/main.js" defer></script>
+    <script src="scripts/theme.js" defer></script>
 </body>
 </html>
