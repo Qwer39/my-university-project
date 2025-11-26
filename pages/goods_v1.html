@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Товары - Портфолио</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        .product-img {
+            height: 200px;
+            object-fit: cover;
+        }
+        .discount-badge {
+            position: absolute;
+            top: 10px;
+            right: -30px;
+            background: #dc3545;
+            color: white;
+            padding: 5px 30px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container-fluid p-0">
+        <!-- Header -->
+        <header class="bg-primary text-white py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h1 class="h3 mb-1">Портфолио студента</h1>
+                        <p class="mb-0 opacity-75">Семестровая работа по веб-разработке</p>
+                    </div>
+                    <div class="col-auto">
+                        <span class="badge bg-light text-primary">Э06-00-00</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">
+                                <i class="bi bi-house me-1"></i>Главная
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="news.html">
+                                <i class="bi bi-newspaper me-1"></i>Новости
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="practices.html">
+                                <i class="bi bi-code-slash me-1"></i>Практики
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="goods.html">
+                                <i class="bi bi-cart me-1"></i>Товары
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacts.html">
+                                <i class="bi bi-telephone me-1"></i>Контакты
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="container my-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="mb-0">Наши товары</h2>
+                <div class="d-flex gap-2">
+                    <select class="form-select form-select-sm" style="width: auto;">
+                        <option>Сортировка</option>
+                        <option>По цене (возр.)</option>
+                        <option>По цене (убыв.)</option>
+                        <option>По названию</option>
+                    </select>
+                    <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#cartModal">
+                        <i class="bi bi-cart"></i> Корзина
+                        <span class="badge bg-primary" id="cartCount">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="row g-4">
+                <!-- Product 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm position-relative">
+                        <div class="position-relative">
+                            <img src="../assets/goods1.jpg" class="card-img-top product-img" alt="Игровой ноутбук"
+                                 onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjVmNWY1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0jOTk5IHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj7QndC+0LzQtdC90LjRgtGMPC90ZXh0Pjwvc3ZnPg=='">
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Игровой ноутбук</h5>
+                            <p class="card-text flex-grow-1">Мощный игровой ноутбук с процессором Intel Core i7 и видеокартой RTX 4060.</p>
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="text-muted text-decoration-line-through">85 000 руб.</span>
+                                    <span class="h5 text-primary mb-0">75 000 руб.</span>
+                                </div>
+                                <button class="btn btn-primary w-100" onclick="addToCart(1, 'Игровой ноутбук', 75000)">
+                                    <i class="bi bi-cart-plus"></i> Добавить в корзину
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm position-relative">
+                        <div class="discount-badge">СКИДКА</div>
+                        <img src="../assets/goods2.jpg" class="card-img-top product-img" alt="Смартфон премиум"
+                             onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjVmNWY1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0jOTk5IHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj7QndC+0LzQtdC90LjRgtGMPC90ZXh0Pjwvc3ZnPg=='">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Смартфон премиум</h5>
+                            <p class="card-text flex-grow-1">Флагманский смартфон с камерой 108 МП и AMOLED-дисплеем.</p>
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="text-muted text-decoration-line-through">45 000 руб.</span>
+                                    <span class="h5 text-primary mb-0">39 999 руб.</span>
+                                </div>
+                                <button class="btn btn-primary w-100" onclick="addToCart(2, 'Смартфон премиум', 39999)">
+                                    <i class="bi bi-cart-plus"></i> Добавить в корзину
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="../assets/goods3.jpg" class="card-img-top product-img" alt="Беспроводные наушники"
+                             onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjVmNWY1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0jOTk5IHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj7QndC+0LzQtdC90LjRgtGMPC90ZXh0Pjwvc3ZnPg=='">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Беспроводные наушники</h5>
+                            <p class="card-text flex-grow-1">Качественные наушники с шумоподавлением и временем работы до 30 часов.</p>
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="h5 text-primary mb-0">12 500 руб.</span>
+                                </div>
+                                <button class="btn btn-primary w-100" onclick="addToCart(3, 'Беспроводные наушники', 12500)">
+                                    <i class="bi bi-cart-plus"></i> Добавить в корзину
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-dark text-white py-4 mt-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="mb-0">&copy; 2024 Семестровая работа. Все права защищены.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <a href="contacts.html" class="text-white text-decoration-none me-3">Контакты</a>
+                        <a href="#" class="text-white text-decoration-none">Политика конфиденциальности</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Корзина товаров</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cartItems">
+                        <p class="text-muted text-center py-4">Корзина пуста</p>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
+                        <strong>Итого:</strong>
+                        <strong id="cartTotal">0 руб.</strong>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Продолжить покупки</button>
+                    <button type="button" class="btn btn-primary" onclick="checkout()">Оформить заказ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let cart = [];
+
+        function addToCart(id, name, price) {
+            cart.push({ id, name, price });
+            updateCart();
+            
+            // Показать уведомление
+            const toast = new bootstrap.Toast(document.getElementById('addToCartToast'));
+            document.getElementById('toastProductName').textContent = name;
+            toast.show();
+        }
+
+        function updateCart() {
+            const cartCount = document.getElementById('cartCount');
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            cartCount.textContent = cart.length;
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="text-muted text-center py-4">Корзина пуста</p>';
+                cartTotal.textContent = '0 руб.';
+                return;
+            }
+            
+            let itemsHTML = '';
+            let total = 0;
+            
+            cart.forEach(item => {
+                total += item.price;
+                itemsHTML += `
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <div>
+                            <h6 class="mb-0">${item.name}</h6>
+                            <small class="text-muted">${item.price.toLocaleString()} руб.</small>
+                        </div>
+                        <button class="btn btn-sm btn-outline-danger" onclick="removeFromCart(${item.id})">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
+                `;
+            });
+            
+            cartItems.innerHTML = itemsHTML;
+            cartTotal.textContent = total.toLocaleString() + ' руб.';
+        }
+
+        function removeFromCart(id) {
+            const index = cart.findIndex(item => item.id === id);
+            if (index > -1) {
+                cart.splice(index, 1);
+                updateCart();
+            }
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Корзина пуста!');
+                return;
+            }
+            
+            alert(`Заказ оформлен! Сумма: ${cart.reduce((sum, item) => sum + item.price, 0).toLocaleString()} руб.`);
+            cart = [];
+            updateCart();
+            bootstrap.Modal.getInstance(document.getElementById('cartModal')).hide();
+        }
+
+        // Инициализация при загрузке
+        document.addEventListener('DOMContentLoaded', updateCart);
+    </script>
+
+    <!-- Toast Notification -->
+    <div class="toast position-fixed top-0 end-0 m-3" id="addToCartToast" role="alert">
+        <div class="toast-header">
+            <i class="bi bi-check-circle-fill text-success me-2"></i>
+            <strong class="me-auto">Товар добавлен</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body">
+            <span id="toastProductName"></span> добавлен в корзину!
+        </div>
+    </div>
+</body>
+</html>
