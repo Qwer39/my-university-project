@@ -1,73 +1,66 @@
-// Переключатель темы
-class ThemeToggle {
-  constructor() {
-    this.KEY = 'theme';
-    this.toggleBtn = document.querySelector('.theme-toggle');
-    this.init();
-  }
-
-  init() {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const savedTheme = localStorage.getItem(this.KEY);
-
-    // Автовыбор темы
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      this.enableDarkTheme();
+// scripts/theme.js
+class ThemeManager {
+    constructor() {
+        this.themeToggle = document.querySelector('.theme-toggle');
+        this.currentTheme = localStorage.getItem('theme') || 'light';
+        this.init();
     }
 
-    // Обработчик клика
-    this.toggleBtn?.addEventListener('click', () => {
-      this.toggle();
-    });
+    init() {
+        this.applyTheme(this.currentTheme);
+        this.themeToggle?.addEventListener('click', () => this.toggleTheme());
+        
+        // Слушаем системные предпочтения
+        this.watchSystemPreference();
+    }
 
-    // Слушатель системных изменений
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-      if (!localStorage.getItem(this.KEY)) {
-        if (e.matches) {
-          this.enableDarkTheme();
-        } else {
-          this.disableDarkTheme();
+    applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        
+        // Обновляем текст кнопки
+        if (this.themeToggle) {
+            this.themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+            this.themeToggle.setAttribute('aria-label', 
+                theme === 'dark' ? 'Переключить на светлую тему' : 'Переключить на темную тему'
+            );
         }
-      }
-    });
-  }
-
-  enableDarkTheme() {
-    document.body.classList.add('theme-dark');
-    this.toggleBtn?.setAttribute('aria-pressed', 'true');
-    this.toggleBtn?.setAttribute('aria-label', 'Переключить на светлую тему');
-    localStorage.setItem(this.KEY, 'dark');
-  }
-
-  disableDarkTheme() {
-    document.body.classList.remove('theme-dark');
-    this.toggleBtn?.setAttribute('aria-pressed', 'false');
-    this.toggleBtn?.setAttribute('aria-label', 'Переключить на тёмную тему');
-    localStorage.setItem(this.KEY, 'light');
-  }
-
-  toggle() {
-    const isDark = document.body.classList.contains('theme-dark');
-    
-    if (isDark) {
-      this.disableDarkTheme();
-    } else {
-      this.enableDarkTheme();
     }
 
-    // Анимация переключения
-    this.animateToggle();
-  }
+    toggleTheme() {
+        const newTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+        this.currentTheme = newTheme;
+        this.applyTheme(newTheme);
+        
+        // Анимация переключения
+        this.animateToggle();
+    }
 
-  animateToggle() {
-    this.toggleBtn?.style.transform = 'scale(0.95)';
-    setTimeout(() => {
-      this.toggleBtn?.style.transform = 'scale(1)';
-    }, 150);
-  }
+    animateToggle() {
+        this.themeToggle.style.transform = 'scale(0.8)';
+        setTimeout(() => {
+            this.themeToggle.style.transform = 'scale(1)';
+        }, 150);
+    }
+
+    watchSystemPreference() {
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Применяем системную тему если нет сохраненной
+        if (!localStorage.getItem('theme')) {
+            this.applyTheme(mediaQuery.matches ? 'dark' : 'light');
+        }
+
+        // Слушаем изменения системной темы
+        mediaQuery.addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                this.applyTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+    }
 }
 
-// Инициализация при загрузке
+// Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
-  new ThemeToggle();
+    new ThemeManager();
 });
