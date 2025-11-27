@@ -9,21 +9,32 @@ class ThemeManager {
     init() {
         this.applyTheme(this.currentTheme);
         this.themeToggle?.addEventListener('click', () => this.toggleTheme());
+        this.themeToggle?.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.toggleTheme();
+            }
+        });
         
-        // Слушаем системные предпочтения
+        // Watch system preference
         this.watchSystemPreference();
+        
+        // Add reduced motion support
+        this.handleReducedMotion();
     }
 
     applyTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
         
-        // Обновляем текст кнопки
+        // Update button text and ARIA label
         if (this.themeToggle) {
-            this.themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+            const isDark = theme === 'dark';
+            this.themeToggle.textContent = isDark ? '☀️' : '🌙';
             this.themeToggle.setAttribute('aria-label', 
-                theme === 'dark' ? 'Переключить на светлую тему' : 'Переключить на темную тему'
+                isDark ? 'Переключить на светлую тему' : 'Переключить на темную тему'
             );
+            this.themeToggle.setAttribute('aria-pressed', isDark);
         }
     }
 
@@ -32,8 +43,10 @@ class ThemeManager {
         this.currentTheme = newTheme;
         this.applyTheme(newTheme);
         
-        // Анимация переключения
-        this.animateToggle();
+        // Animate toggle with respect to reduced motion
+        if (!this.shouldReduceMotion()) {
+            this.animateToggle();
+        }
     }
 
     animateToggle() {
@@ -46,21 +59,56 @@ class ThemeManager {
     watchSystemPreference() {
         const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
         
-        // Применяем системную тему если нет сохраненной
+        // Apply system theme if no saved preference
         if (!localStorage.getItem('theme')) {
             this.applyTheme(mediaQuery.matches ? 'dark' : 'light');
         }
 
-        // Слушаем изменения системной темы
+        // Listen for system theme changes
         mediaQuery.addEventListener('change', (e) => {
             if (!localStorage.getItem('theme')) {
                 this.applyTheme(e.matches ? 'dark' : 'light');
             }
         });
     }
+
+    shouldReduceMotion() {
+        return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+
+    handleReducedMotion() {
+        const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        
+        const updateMotionPreference = (e) => {
+            if (e.matches) {
+                document.documentElement.style.setProperty('--transition', 'none');
+            } else {
+                document.documentElement.style.setProperty('--transition', 'all 0.3s ease');
+            }
+        };
+
+        // Set initial state
+        updateMotionPreference(mediaQuery);
+        
+        // Listen for changes
+        mediaQuery.addEventListener('change', updateMotionPreference);
+    }
 }
 
-// Инициализация при загрузке страницы
+// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new ThemeManager();
+    
+    // Focus management for skip link
+    const skipLink = document.querySelector('.skip-link');
+    const mainContent = document.getElementById('main');
+    
+    if (skipLink && mainContent) {
+        skipLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            mainContent.setAttribute('tabindex', '-1');
+            mainContent.focus();
+            setTimeout(() => mainContent.removeAttribute('tabindex'), 1000);
+        });
+    }
 });
