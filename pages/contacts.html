@@ -14,10 +14,10 @@
             <p class="header__subtitle">Семестровая работа по веб-разработке</p>
         </header>
 
-        <nav class="nav">
+        <nav class="nav" aria-label="Основная навигация">
             <ul class="nav__list">
                 <li class="nav__item">
-                    <a class="nav-link" href="../index.html">Главная</a>
+                    <a class="nav__link" href="../index.html">Главная</a>
                 </li>
                 <li class="nav__item">
                     <a class="nav__link" href="news.html">Новости</a>
@@ -29,7 +29,8 @@
                     <a class="nav__link" href="goods.html">Товары</a>
                 </li>
                 <li class="nav__item">
-                    <a class="nav__link nav-link--active" href="contacts.html">Контакты</a>
+                    <a class="nav__link nav__link--active" href="contacts.html" 
+                    aria-current="page">Контакты</a>
                 </li>
             </ul>
         </nav>
@@ -64,7 +65,7 @@
                     </div>
                 </div>
 
-                <button class="button" onclick="contactModal.showModal()">
+                <button class="button" onclick="openModal()">
                     Связаться с нами
                 </button>
             </section>
@@ -75,61 +76,114 @@
         </footer>
 
         <!-- Модальное окно -->
-        <dialog id="contactModal" class="modal">
+        <dialog id="contactModal" class="modal" 
+                role="dialog" 
+                aria-modal="true"
+                aria-labelledby="modal-title"
+                aria-describedby="modal-description">
+            
             <div class="modal__header">
-                <h2 class="modal__title">Форма обратной связи</h2>
+                <h2 id="modal-title" class="modal__title">Форма обратной связи</h2>
+                <p id="modal-description" class="modal__description">
+                    Заполните форму ниже, и мы свяжемся с вами в ближайшее время
+                </p>
+                <button class="modal__close" 
+                        onclick="closeModal()" 
+                        aria-label="Закрыть диалоговое окно">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Закрыть</span>
+                </button>
             </div>
             <div class="modal__content">
-                <form id="feedbackForm" method="dialog" class="form">
-                    <div class="form__group">
-                        <label for="name" class="form__label">
-                            Имя <span class="form__required">*</span>
-                        </label>
-                        <input type="text" id="name" name="name" class="form__input" required 
-                               placeholder="Введите ваше имя" minlength="2">
-                    </div>
+                <form id="feedbackForm" method="dialog" class="form" novalidate>
+                    
+                    <!-- ДОБАВЬТЕ fieldset ДЛЯ КОНТАКТНОЙ ИНФОРМАЦИИ -->
+                    <fieldset class="form__fieldset">
+                        <legend class="form__legend">Контактная информация</legend>
+                        
+                        <!-- Поле имени - ОБНОВИТЕ СУЩЕСТВУЮЩЕЕ -->
+                        <div class="form__group">
+                            <label for="name" class="form__label">
+                                Имя <span class="form__required" aria-hidden="true">*</span>
+                                <span class="sr-only">обязательное поле</span>
+                            </label>
+                            <input type="text" id="name" name="name" class="form__input" 
+                                required aria-required="true"
+                                placeholder="Введите ваше имя" minlength="2"
+                                aria-describedby="name-error"
+                                autofocus>
+                            <div id="name-error" class="form__error" role="alert" aria-live="polite"></div>
+                        </div>
 
-                    <div class="form__group">
-                        <label for="phone" class="form__label">
-                            Телефон <span class="form__required">*</span>
-                        </label>
-                        <input type="tel" id="phone" name="phone" class="form__input" required 
-                               placeholder="+7 (XXX) XXX-XX-XX" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$">
-                    </div>
+                        <!-- Поле телефона - ОБНОВИТЕ СУЩЕСТВУЮЩЕЕ -->
+                        <div class="form__group">
+                            <label for="phone" class="form__label">
+                                Телефон <span class="form__required" aria-hidden="true">*</span>
+                                <span class="sr-only">обязательное поле</span>
+                            </label>
+                            <input type="tel" id="phone" name="phone" class="form__input" 
+                                required aria-required="true"
+                                placeholder="+7 (XXX) XXX-XX-XX" 
+                                pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+                                aria-describedby="phone-error">
+                            <div id="phone-error" class="form__error" role="alert" aria-live="polite"></div>
+                        </div>
 
-                    <div class="form__group">
-                        <label for="email" class="form__label">
-                            Электронная почта <span class="form__required">*</span>
-                        </label>
-                        <input type="email" id="email" name="email" class="form__input" required 
-                               placeholder="example@mail.ru">
-                    </div>
+                        <!-- Поле email - ОБНОВИТЕ СУЩЕСТВУЮЩЕЕ -->
+                        <div class="form__group">
+                            <label for="email" class="form__label">
+                                Электронная почта <span class="form__required" aria-hidden="true">*</span>
+                                <span class="sr-only">обязательное поле</span>
+                            </label>
+                            <input type="email" id="email" name="email" class="form__input" 
+                                required aria-required="true"
+                                placeholder="example@mail.ru"
+                                aria-describedby="email-error">
+                            <div id="email-error" class="form__error" role="alert" aria-live="polite"></div>
+                        </div>
+                    </fieldset>
 
-                    <div class="form__group">
-                        <label for="category" class="form__label">
-                            Категория обращения <span class="form__required">*</span>
-                        </label>
-                        <select id="category" name="category" class="form__select" required>
-                            <option value="">Выберите категорию</option>
-                            <option value="technical">Техническая поддержка</option>
-                            <option value="commercial">Коммерческое предложение</option>
-                            <option value="cooperation">Сотрудничество</option>
-                            <option value="complaint">Жалоба</option>
-                            <option value="suggestion">Предложение</option>
-                            <option value="other">Другое</option>
-                        </select>
-                    </div>
+                    <!-- ДОБАВЬТЕ fieldset ДЛЯ КАТЕГОРИИ -->
+                    <fieldset class="form__fieldset">
+                        <legend class="form__legend">
+                            Тип обращения <span class="form__required" aria-hidden="true">*</span>
+                        </legend>
+                        
+                        <div class="form__group">
+                            <label for="category" class="form__label sr-only">
+                                Выберите категорию обращения
+                            </label>
+                            <select id="category" name="category" class="form__select" 
+                                    required aria-required="true"
+                                    aria-describedby="category-error">
+                                <option value="">Выберите категорию</option>
+                                <option value="technical">Техническая поддержка</option>
+                                <option value="commercial">Коммерческое предложение</option>
+                                <option value="cooperation">Сотрудничество</option>
+                                <option value="complaint">Жалоба</option>
+                                <option value="suggestion">Предложение</option>
+                                <option value="other">Другое</option>
+                            </select>
+                            <div id="category-error" class="form__error" role="alert" aria-live="polite"></div>
+                        </div>
+                    </fieldset>
 
+                    <!-- Поле сообщения - ОБНОВИТЕ СУЩЕСТВУЮЩЕЕ -->
                     <div class="form__group">
                         <label for="message" class="form__label">
-                            Текст обращения <span class="form__required">*</span>
+                            Текст обращения <span class="form__required" aria-hidden="true">*</span>
+                            <span class="sr-only">обязательное поле</span>
                         </label>
-                        <textarea id="message" name="message" class="form__textarea" required 
-                                  placeholder="Опишите вашу проблему или вопрос..."></textarea>
+                        <textarea id="message" name="message" class="form__textarea" 
+                                required aria-required="true"
+                                placeholder="Опишите вашу проблему или вопрос..."
+                                aria-describedby="message-error"></textarea>
+                        <div id="message-error" class="form__error" role="alert" aria-live="polite"></div>
                     </div>
 
+                    <!-- КНОПКИ ОСТАВЬТЕ КАК ЕСТЬ -->
                     <div class="form__actions">
-                        <button type="submit" class="button button--secondary">Отмена</button>
+                        <button type="button" class="button button--secondary" onclick="closeModal()">Отмена</button>
                         <button type="button" class="button" onclick="submitForm()">Отправить</button>
                     </div>
                 </form>
@@ -139,30 +193,146 @@
 
     <script src="../scripts/theme.js"></script>
     <script>
+        // Переменные для управления фокусом
+        let previousActiveElement;
+
+        // Функции для модального окна
+        function openModal() {
+            const modal = document.getElementById('contactModal');
+            previousActiveElement = document.activeElement;
+            
+            modal.showModal();
+            
+            // Скрыть основной контент от скринридера
+            document.querySelectorAll('main, footer, .header')
+                .forEach(el => el.setAttribute('aria-hidden', 'true'));
+            
+            // Добавить обработчик Escape
+            document.addEventListener('keydown', handleEscape);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('contactModal');
+            modal.close();
+            
+            // Вернуть видимость контенту
+            document.querySelectorAll('[aria-hidden="true"]')
+                .forEach(el => el.removeAttribute('aria-hidden'));
+            
+            // Вернуть фокус
+            if (previousActiveElement) previousActiveElement.focus();
+            
+            document.removeEventListener('keydown', handleEscape);
+        }
+
+        function handleEscape(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        }
+
+        // Захват фокуса внутри модалки
+        document.getElementById('contactModal').addEventListener('keydown', function(event) {
+            if (event.key === 'Tab') {
+                const focusableElements = this.querySelectorAll(
+                    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+                );
+                
+                if (focusableElements.length === 0) return;
+                
+                const firstElement = focusableElements[0];
+                const lastElement = focusableElements[focusableElements.length - 1];
+                
+                if (event.shiftKey && document.activeElement === firstElement) {
+                    event.preventDefault();
+                    lastElement.focus();
+                } else if (!event.shiftKey && document.activeElement === lastElement) {
+                    event.preventDefault();
+                    firstElement.focus();
+                }
+            }
+        });
+
+        // Валидация форм
+        function validateField(field) {
+            const errorElement = document.getElementById(field.id + '-error');
+            
+            if (!field.checkValidity()) {
+                field.setAttribute('aria-invalid', 'true');
+                errorElement.textContent = getErrorMessage(field);
+                return false;
+            } else {
+                field.setAttribute('aria-invalid', 'false');
+                errorElement.textContent = '';
+                return true;
+            }
+        }
+
+        function getErrorMessage(field) {
+            if (field.validity.valueMissing) {
+                return 'Это поле обязательно для заполнения';
+            }
+            if (field.validity.tooShort) {
+                return `Минимальная длина: ${field.minLength} символов`;
+            }
+            if (field.validity.typeMismatch) {
+                return 'Введите корректное значение';
+            }
+            if (field.validity.patternMismatch) {
+                return 'Введите данные в правильном формате';
+            }
+            return 'Пожалуйста, исправьте это поле';
+        }
+
+        // Обработчик отправки формы
         function submitForm() {
             const form = document.getElementById('feedbackForm');
-            const formData = new FormData(form);
+            const fields = form.querySelectorAll('input, select, textarea');
+            let isValid = true;
 
-            if (!form.checkValidity()) {
-                form.reportValidity();
+            // Валидация всех полей
+            fields.forEach(field => {
+                if (!validateField(field)) {
+                    isValid = false;
+                }
+            });
+
+            if (!isValid) {
+                // Сфокусироваться на первом ошибочном поле
+                const firstError = form.querySelector('[aria-invalid="true"]');
+                if (firstError) {
+                    firstError.focus();
+                }
                 return;
             }
 
+            // Отправка формы (ваш существующий код)
+            const formData = new FormData(form);
             const data = Object.fromEntries(formData);
             console.log('Данные формы:', data);
 
             alert('Спасибо! Ваше обращение отправлено. Мы свяжемся с вами в ближайшее время.');
-            contactModal.close();
+            closeModal();
             form.reset();
         }
 
-        document.getElementById('contactModal').addEventListener('click', function(event) {
-            if (event.target === this) {
-                this.close();
+        // Добавить обработчики валидации на поля
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('feedbackForm');
+            if (form) {
+                const fields = form.querySelectorAll('input, select, textarea');
+                fields.forEach(field => {
+                    field.addEventListener('blur', () => validateField(field));
+                    field.addEventListener('input', () => {
+                        if (field.hasAttribute('aria-invalid')) {
+                            validateField(field);
+                        }
+                    });
+                });
             }
         });
 
-        // Маска для телефона
+        // Маска для телефона (ваш существующий код)
         document.getElementById('phone')?.addEventListener('input', function(e) {
             let value = e.target.value.replace(/\D/g, '');
             if (value.startsWith('7') || value.startsWith('8')) {
@@ -177,6 +347,13 @@
             if (value.length >= 9) formattedValue += '-' + value.substring(8, 10);
             
             e.target.value = formattedValue;
+        });
+
+        // Закрытие модалки по клику вне контента
+        document.getElementById('contactModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeModal();
+            }
         });
     </script>
 </body>
